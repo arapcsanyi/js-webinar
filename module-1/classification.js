@@ -21,7 +21,22 @@ function grade(score) {
      * Also take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
+    // Check if the input is valid
+    if (typeof score !== 'number' || score < 0 || score > 100) {
+        return 0; // Invalid input, return 0
+    }
 
+    if (score >= 90) {
+        gradeOfStudent = 5;
+    } else if (score >= 80) {
+        gradeOfStudent = 4;
+    } else if (score >= 70) {
+        gradeOfStudent = 3;
+    } else if (score >= 60) {
+        gradeOfStudent = 2;
+    } else {
+        gradeOfStudent = 1;
+    }
     // ...AND THIS COMMENT LINE!
     return gradeOfStudent;
 }
