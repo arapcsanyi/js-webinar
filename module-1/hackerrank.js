@@ -17,6 +17,7 @@ function diagonalDifference(arr) {
 }
 
 
+// P
 function miniMaxSum(arr) {
     // Write your code here
     arr.sort((a, b) => a - b); // Sort the array in ascending order
@@ -24,6 +25,7 @@ function miniMaxSum(arr) {
     const n = arr.length;
     let minSum = 0;
     let maxSum = 0;
+
 
     for (let i = 0; i < n - 1; i++) {
         minSum += arr[i]; // Add the first four smallest elements

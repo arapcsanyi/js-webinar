@@ -16,8 +16,15 @@ function euclidean(a, b) {
      * Also, take into consideration the documentation of the function!
      */
     // PLACE YOUR CODE BETWEEN THIS...
-
-
+if (typeof a !== 'number' || typeof b !== 'number' || a <= 0 || b <= 0) {
+    return 0;
+}
+while (b !== 0) {
+    const temp = b;
+    b = a % b;
+    a = temp;
+}
+gcd = a;
     // ...AND THIS COMMENT LINE!
     return gcd;
 }
