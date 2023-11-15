@@ -69,6 +69,7 @@ class Element {
         }
         return null;
     }
+
 }
 
 module.exports = Element;
