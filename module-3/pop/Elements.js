@@ -19,9 +19,9 @@
 
 'use strict';
 
-const  ElementArrayFinder = require("../test/mock/ElementArrayFinder");
+const ElementArrayFinder = require("../test/mock/ElementArrayFinder");
 
-const Element = require ('./Element');
+const Element = require('./Element');
 class Elements extends Element {
     constructor(name, locator) {
         super(name, locator);

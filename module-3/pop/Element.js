@@ -39,7 +39,7 @@ class Element {
             throw new Error('Child already exists');
         }
         this.children[child.name] = child;
-        child.setParent(this);
+        return child.setParent(this);
     }
 
     get(name) {
