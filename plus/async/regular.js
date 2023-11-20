@@ -4,10 +4,11 @@ async function wait() {
     return 10;
 }
 
-/* 
+/*
  * You need to call async wait() and wait to get 10 and return it
  * You can't use "await"!
  */
 module.exports = function f() {
     // ...what to write here?
-}
+    return wait().then(result => result);
+};
