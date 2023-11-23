@@ -1,9 +1,9 @@
 const { expect } = require("chai");
-const sleep = require("../../async/sleep");
+const sleep = require("./sleep");
 
 const TIMEOUT = 16e3;
 
-describe("async / sleep", () => {
+describe.only("async / sleep", () => {
     it("should wait given seconds", async function () {
         this.timeout(TIMEOUT);
         const a = Date.now();

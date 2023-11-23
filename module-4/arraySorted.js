@@ -14,7 +14,6 @@
  */
 
 
-
 module.exports = function isArraySorted(items) {
     return items.sort().join('') === items.join('');
 };
