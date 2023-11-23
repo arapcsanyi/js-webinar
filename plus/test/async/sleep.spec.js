@@ -3,7 +3,7 @@ const sleep = require("./sleep");
 
 const TIMEOUT = 16e3;
 
-describe.only("async / sleep", () => {
+describe("async / sleep", () => {
     it("should wait given seconds", async function () {
         this.timeout(TIMEOUT);
         const a = Date.now();
