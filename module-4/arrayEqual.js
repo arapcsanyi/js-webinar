@@ -13,59 +13,31 @@
  */
 
 module.exports = function arrayEqual(first, second) {
-    // // Check if both arguments are arrays
-    // if (!Array.isArray(first) || !Array.isArray(second)) {
-    //     console.warn('Please provide valid arrays for comparison.');
-    //     return false;
-    //   }
-
-    //   // Check if the lengths of the arrays are equal
-    //   if (first.length !== second.length) {
-    //     console.warn(`Arrays have different lengths: ${first.length} !== ${second.length}`);
-    //     return false;
-    //   }
-
-    //   // Iterate through each element of the arrays
-    //   for (let i = 0; i < first.length; i++) {
-    //     if (Array.isArray(first[i]) !== Array.isArray(second[i])) {
-    //       // If one element is an array and the other is not, they are different
-    //       console.warn(`Arrays differ at index ${i}: ${first[i]} !== ${second[i]}`);
-    //       return false;
-    //     }
-
-    //     if (Array.isArray(first[i]) && Array.isArray(second[i])) {
-    //       // If both elements are arrays, compare their lengths
-    //       if (first[i].length !== second[i].length) {
-    //         console.warn(`Arrays differ at index ${i}: ${first[i].length} !== ${second[i].length}`);
-    //         return false;
-    //       }
-    //     } else if (first[i] !== second[i]) {
-    //       // If elements are not arrays, compare their values
-    //       console.warn(`Arrays differ at index ${i}: ${first[i]} !== ${second[i]}`);
-    //       return false;
-    //     }
-    //   }
-
-    //   return true;
-
-
-    if (first.length !== second.length) {
-        console.warn(`Warning: The length of two arrays is different. ${first.length} != ${second.length}`);
-        return false;
-    }
-
-    const compareElements = (index) => {
-        if (index === first.length) {
-            return true;
+        // Check if the arrays have the same length
+        if (first.length !== second.length) {
+          console.warn(`Arrays have different lengths: ${first.length} and ${second.length}`);
+          return false;
         }
 
-        if (first[index] !== second[index]) {
-            console.warn(`Warning: The elements at index ${index} are different. ${first[index]} != ${second[index]}`);
-            return false;
+        // Check each element in the arrays
+        for (let i = 0; i < first.length; i++) {
+          const elementFirst = first[i];
+          const elementSecond = second[i];
+
+          // If elements are arrays, recursively check them
+          if (Array.isArray(elementFirst) && Array.isArray(elementSecond)) {
+            if (!arrayEqual(elementFirst, elementSecond)) {
+              console.warn(`Arrays differ at index ${i}: ${JSON.stringify(elementFirst)} and ${JSON.stringify(elementSecond)}`);
+              return false;
+            }
+          } else {
+            // Compare non-array elements
+            if (elementFirst !== elementSecond) {
+              console.warn(`Elements differ at index ${i}: ${elementFirst} and ${elementSecond}`);
+              return false;
+            }
+          }
         }
+        return true;
+      }
 
-        return compareElements(index + 1);
-    };
-
-    return compareElements(0);
-}

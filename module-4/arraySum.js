@@ -11,14 +11,14 @@
 
 
 
-// module.exports = function arraySum(elements) {
-//     let sum = 0;
-//     for (let i = 0; i < elements.length; i++) {
-//         if (Array.isArray(elements[i])) {
-//             sum += arraySum(elements[i]);
-//         } else if (typeof elements[i] === 'number') {
-//             sum += elements[i];
-//         }
-//     }
-//     return sum;
-// }
+module.exports = function arraySum(elements) {
+    let sum = 0;
+    for (let i = 0; i < elements.length; i++) {
+        if (Array.isArray(elements[i])) {
+            sum += arraySum(elements[i]);
+        } else if (typeof elements[i] === 'number') {
+            sum += elements[i];
+        }
+    }
+    return sum;
+}

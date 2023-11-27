@@ -14,6 +14,24 @@
  */
 
 
-module.exports = function isArraySorted(items) {
-    return items.sort().join('') === items.join('');
+module.exports = function arraySorted(items, ignore = '') {
+    const regEx = new RegExp(`[${ignore}\\s]`, 'gi');
+
+    const cleanElement = (element) => {
+        if (typeof element !== 'string') {
+            return '';
+        }
+        return element.replace(regEx, '').toLowerCase();
+    };
+
+    for (let i = 0; i < items.length - 1; i++) {
+        const currentItem = cleanElement(items[i]);
+        const nextItem = cleanElement(items[i + 1]);
+
+        if (currentItem > nextItem) {
+            return false;
+        }
+    }
+
+    return true;
 };
