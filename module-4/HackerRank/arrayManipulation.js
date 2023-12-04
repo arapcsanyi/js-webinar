@@ -32,18 +32,16 @@ function readLine() {
  */
 
 function arrayManipulation(n, queries) {
-    // Write your code here
     const changes = Array(n + 1).fill(0);
-    for (let i = 0; i < queries.length; i++) {
-        const [a, b, k] = queries[i];
+    for (const [a, b, k] of queries) {
         changes[a - 1] += k;
         changes[b] -= k;
     }
 
     let max = 0;
     let sum = 0;
-    for (let i = 0; i < n; i++) {
-        sum += changes[i];
+    for (const change of changes) {
+        sum += change;
         max = Math.max(max, sum);
     }
 

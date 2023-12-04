@@ -8,18 +8,18 @@
  */
 
 module.exports = function longestString(strings) {
-    if (!Array.isArray(strings) || strings.length === 0) {
-      return ''; // Return an empty string for invalid or empty arrays
-    }
+  if (!Array.isArray(strings) || strings.length === 0) {
+    return '';
+  }
 
-    let longest = '';
-    for (let i = 0; i < strings.length; i++) {
-      if (typeof strings[i] === 'string') {
-        if (longest === '' || strings[i].length > longest.length || (strings[i].length === longest.length && strings[i] < longest)) {
-          longest = strings[i];
-        }
+  let longest = '';
+  for (const string of strings) {
+    if (typeof string === 'string') {
+      if (longest === '' || string.length > longest.length || (string.length === longest.length && string < longest)) {
+        longest = string;
       }
     }
+  }
 
-    return longest;
-  };
+  return longest;
+};

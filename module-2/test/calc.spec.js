@@ -1,3 +1,4 @@
+const { it } = require('mocha');
 const calc = require('../calc');
 const expect = require('chai').expect;
 
@@ -18,4 +19,48 @@ describe.only('calc', () => {
      */
     // TODO: write test cases to test the calculator
 
+    it('should return the initial value when no operations are performed', () => {
+        expect(calc(3).v).to.equal(3);
+    });
+
+    it('should correctly add two numbers', () => {
+        expect(calc(3).add(5).v).to.equal(8);
+    });
+
+    it('should correctly subtract one number from another', () => {
+        expect(calc(3).minus(2).v).to.equal(1);
+    });
+
+    it('should correctly calculate the square root of a number', () => {
+        expect(calc(4).sqrt().v).to.equal(2);
+    });
+
+    it('should correctly multiply two numbers', () => {
+        expect(calc(3).times(10).v).to.equal(30);
+    });
+
+    it('should correctly divide one number by another', () => {
+        expect(calc(10).divide(2).v).to.equal(5);
+    });
+
+    it('should correctly calculate the modulo of one number by another', () => {
+        expect(calc(10).modulo(5).v).to.equal(0);
+    });
+
+    it('should throw an error when dividing by zero', () => {
+        expect(() => calc(5).divide(0)).to.throw('Division by 0 is not possible!');
+    });
+
+    it('should throw an error when taking the square root of a negative number', () => {
+        expect(() => calc(-3).sqrt()).to.throw('Square root of a negative value cannot be determined!');
+    });
+
+    it('should correctly chain multiple operations', () => {
+        expect(
+            calc(3)
+                .add(4)
+                .minus(3)
+                .times(6).v
+        ).to.equal(24);
+    });
 });

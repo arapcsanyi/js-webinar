@@ -1,14 +1,14 @@
 class Calc {
     /**
      * @constructor
-     * @param {number} v 
+     * @param {number} v
      */
     constructor(v) {
         this.v = +v;
     }
 
     /**
-     * @param {number} n 
+     * @param {number} n
      * @returns {Calc}
      */
     add(n) {
@@ -17,7 +17,7 @@ class Calc {
     }
 
     /**
-     * @param {number} n 
+     * @param {number} n
      * @returns {Calc}
      */
     minus(n) {
@@ -26,7 +26,7 @@ class Calc {
     }
 
     /**
-     * @param {number} n 
+     * @param {number} n
      * @returns {Calc}
      */
     times(n) {
@@ -46,7 +46,7 @@ class Calc {
     }
 
     /**
-     * @param {number} n 
+     * @param {number} n
      * @returns {Calc}
      */
     divide(n) {
@@ -58,7 +58,7 @@ class Calc {
     }
 
     /**
-     * @param {number} n 
+     * @param {number} n
      * @returns {Calc}
      */
     modulo(n) {
@@ -75,7 +75,7 @@ class Calc {
 }
 
 /**
- * @param {number} n 
+ * @param {number} n
  * @returns {Calc}
  */
 function calc(n) {
@@ -84,13 +84,11 @@ function calc(n) {
 
 module.exports = calc;
 
-/*
-console.log(calc(3).v);
-console.log(calc(3).add(4).v);
-console.log(calc(4).minus(5).v);
-console.log(calc(4).times(6).v);
-console.log(calc(10).div(5).v);
-console.log(calc(10).modulo(5).v);
-console.log(calc(4).add(4).times(5).div(1.5).minus(2).v);
-console.log(calc(5).div(0));
-*/
+// console.log(calc(3).v);
+// console.log(calc(3).add(4).v);
+// console.log(calc(4).minus(5).v);
+// console.log(calc(4).times(6).v);
+// console.log(calc(10).div(5).v);
+// console.log(calc(10).modulo(5).v);
+// console.log(calc(4).add(4).times(5).div(1.5).minus(2).v);
+// console.log(calc(5).div(0));
